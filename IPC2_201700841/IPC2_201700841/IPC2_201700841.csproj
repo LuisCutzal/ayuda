@@ -180,6 +180,7 @@
     <Compile Include="Models\Versus.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModels\ArchivoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
@@ -254,6 +255,8 @@
     <Content Include="Views\Usuarios\Edit.cshtml" />
     <Content Include="Views\Usuarios\Index.cshtml" />
     <Content Include="Views\ArchivoCarga\Index.cshtml" />
+    <Content Include="Views\ArchivoCarga\Tab.cshtml" />
+    <Content Include="Views\ArchivoCarga\Generar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

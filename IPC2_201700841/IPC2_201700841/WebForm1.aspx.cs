@@ -84,16 +84,37 @@ namespace IPC2_201700841
             XmlWriterSettings settings = new XmlWriterSettings();
             settings.Indent = true;
             settings.IndentChars = "\t";
-            XmlWriter xmlWriter = XmlWriter.Create(ficha.ToString(), settings); //error
+            XmlWriter xmlWriter = XmlWriter.Create(ficha.ToString(), settings); //error porque no consigo la ubicacion
             xmlWriter.WriteStartDocument();
             xmlWriter.WriteStartElement("tablero");
-            foreach (var dato in ficha.ToString()) //error
+            foreach (var dato in ficha.ToString())//error
             {
                 xmlWriter.WriteStartElement("ficha");
                 xmlWriter.WriteStartElement("color");
-               // xmlWriter.WriteString(dato.color);
+                if (dato.ToString() == "color") 
+                {
+                    xmlWriter.WriteString(dato.ToString());
+                    xmlWriter.WriteEndElement();
+                }
+                xmlWriter.WriteStartElement("columna");
+                if (dato.ToString() == "columna") 
+                {
+                    xmlWriter.WriteString(dato.ToString());
+                    xmlWriter.WriteEndElement();
+                }
+                xmlWriter.WriteStartElement("fila");
+                if (dato.ToString() == "fila")
+                {
+                    xmlWriter.WriteString(dato.ToString());
+                    xmlWriter.WriteEndElement();
+                }
+                xmlWriter.WriteEndElement();
 
             }
+            xmlWriter.WriteEndElement();
+            xmlWriter.WriteEndDocument();
+            xmlWriter.Close();
+
         }
     }
 }

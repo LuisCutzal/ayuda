@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Tab";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="jumbotron">
+    <table>
+       @for (int j = 0; j < 8; j++)
+        {
+            <tr> <!--fila-->
+                @for (int i = 0; i < 8; i++)
+                {
+                    <td> <!--columna-->
+                        <img src="~/blanco.jpg" />                        
+                    </td>
+                }
+            </tr>
+        }
+    </table>
+</div>
+<div class="jumbotron">
+    <div class="col-md-4">
+        <!--boton para cargar una partida guardada-->
+        <form action="/ArchivoCarga/Tab" method="post">
+            <input type="submit" value="Tablero" />
+        </form>
+    </div>
+</div>
