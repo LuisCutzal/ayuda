@@ -23,14 +23,7 @@ namespace IPC2_201700841.Controllers
                        
             return View();
         }
-        //public ActionResult Tab()
-        //{
-        //    using (FaseIpc2_201700841Entities db = new FaseIpc2_201700841Entities())
-        //    {
-
-        //        return View(db.Archivo.ToList());
-        //    }
-        //}
+        
         public ActionResult Tab()
         {
             List<ObtenerContenidoA> datos;

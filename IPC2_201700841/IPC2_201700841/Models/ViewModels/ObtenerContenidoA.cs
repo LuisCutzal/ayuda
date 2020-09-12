@@ -10,7 +10,7 @@ namespace IPC2_201700841.Models.ViewModels
         public int id { get; set; }
         public string color { get; set; }
         public string columna { get; set; }
-        public string fila { get; set; }
+        public Nullable<int> fila { get; set; }
     }
     
 }

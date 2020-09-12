@@ -1,21 +1,19 @@
 ﻿
 <div class="jumbotron">
     <table>
-        @for (int fila = 0; fila < 8; fila++)
+        @for (int fila = 0; fila < 9; fila++)
         {
-            <tr>
+            <tr><img src="~/verde.jpg" />
                 <!--fila-->
-                @for (int columna = 0; columna < 8; columna++)
+                @for (int columna = 0; columna < 9; columna++)
                 {
                 <td>
                     @foreach (var buscar in Model)
                     {
-
+                        
                         int inicio = ((int)char.ToUpper(char.Parse(buscar.columna))) - 64;
-                        if (inicio == columna + 1 && Convert.ToInt32(buscar.fila) == fila + 1)
+                        if (columna == inicio && fila == buscar.fila)
                         {
-
-
                             if (buscar.color == "blanco")
                             {
                                 <img src="~/blanco.jpg" />
