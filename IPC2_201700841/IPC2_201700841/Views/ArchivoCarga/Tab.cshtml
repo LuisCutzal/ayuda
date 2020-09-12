@@ -1,17 +1,34 @@
-﻿@{
-    ViewBag.Title = "Tab";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+﻿
 <div class="jumbotron">
     <table>
-       @for (int j = 0; j < 8; j++)
+        @for (int fila = 0; fila < 8; fila++)
         {
-            <tr> <!--fila-->
-                @for (int i = 0; i < 8; i++)
+            <tr>
+                <!--fila-->
+                @for (int columna = 0; columna < 8; columna++)
                 {
-                    <td> <!--columna-->
-                        <img src="~/blanco.jpg" />                        
-                    </td>
+                <td>
+                    @foreach (var buscar in Model)
+                    {
+
+                        int inicio = ((int)char.ToUpper(char.Parse(buscar.columna))) - 64;
+                        if (inicio == columna + 1 && Convert.ToInt32(buscar.fila) == fila + 1)
+                        {
+
+
+                            if (buscar.color == "blanco")
+                            {
+                                <img src="~/blanco.jpg" />
+                                <label> @columna </label>
+                                <label> @fila </label>
+                            }
+                            if (buscar.color == "negro")
+                            {
+                                <img src="~/negro.jpg" />
+                            }
+                        }
+                    }
+                </td>
                 }
             </tr>
         }
@@ -20,8 +37,8 @@
 <div class="jumbotron">
     <div class="col-md-4">
         <!--boton para cargar una partida guardada-->
-        <form action="/ArchivoCarga/Tab" method="post">
-            <input type="submit" value="Tablero" />
+        <form action="/ArchivoCarga/Generar" method="post">
+            <input type="submit" value="Guardar" />
         </form>
     </div>
 </div>

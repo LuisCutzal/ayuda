@@ -23,6 +23,32 @@ namespace IPC2_201700841.Controllers
                        
             return View();
         }
+        //public ActionResult Tab()
+        //{
+        //    using (FaseIpc2_201700841Entities db = new FaseIpc2_201700841Entities())
+        //    {
+
+        //        return View(db.Archivo.ToList());
+        //    }
+        //}
+        public ActionResult Tab()
+        {
+            List<ObtenerContenidoA> datos;
+
+            using (FaseIpc2_201700841Entities db = new FaseIpc2_201700841Entities())
+            {
+                datos = (from linea in db.Archivo
+                       select new ObtenerContenidoA
+                       {
+                           id = linea.id,
+                           color = linea.color,
+                           columna = linea.columna,
+                           fila = linea.fila
+                       }
+                    ).ToList();
+            }
+            return View(datos);
+        }
         [HttpPost]
         public ActionResult Index(ArchivoModel file)
         {
@@ -108,14 +134,7 @@ namespace IPC2_201700841.Controllers
 
             }
         }
-        public ActionResult Tab()
-        {
-            using (FaseIpc2_201700841Entities db = new FaseIpc2_201700841Entities())
-            {
-                return View(db.Archivo.ToList());
-            }
-
-        }
+        
         
 
     }
