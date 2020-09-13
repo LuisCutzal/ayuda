@@ -1,18 +1,37 @@
 ﻿
-<div class="jumbotron">
-    <table>
-        @for (int fila = 0; fila < 9; fila++)
-        {
-            <tr><img src="~/verde.jpg" />
-                <!--fila-->
-                @for (int columna = 0; columna < 9; columna++)
-                {
+<style>
+    .tablero {
+        border: 1px solid black;
+    }
+
+    td {
+        height: 75px;
+        width: 75px;
+        background-image:url(../../verde.jpg);
+        border: 1px solid black;
+    }
+
+    img {
+        display: block;
+        width: 100%;
+    }
+</style>
+
+
+
+<table class="tablero">
+    @for (int fila = 0; fila < 8; fila++)
+    {
+        <tr>
+            <!--fila-->
+            @for (int columna = 0; columna < 8; columna++)
+            {
                 <td>
                     @foreach (var buscar in Model)
                     {
-                        
+
                         int inicio = ((int)char.ToUpper(char.Parse(buscar.columna))) - 64;
-                        if (columna == inicio && fila == buscar.fila)
+                        if (inicio == columna+1  && buscar.fila== fila + 1)
                         {
                             if (buscar.color == "blanco")
                             {
@@ -24,19 +43,25 @@
                             {
                                 <img src="~/negro.jpg" />
                             }
+
                         }
+
                     }
                 </td>
-                }
-            </tr>
-        }
-    </table>
-</div>
-<div class="jumbotron">
-    <div class="col-md-4">
-        <!--boton para cargar una partida guardada-->
-        <form action="/ArchivoCarga/Generar" method="post">
-            <input type="submit" value="Guardar" />
-        </form>
+            }
+        </tr>
+    }
+</table>
+
+<h2>
+    Guardar Archivo
+</h2>
+@using (Html.BeginForm("CrearArchivo", "ArchivoCarga", FormMethod.Get, new { enctype = "multipart/form-data" }))
+{
+    <div class="jumbotron">
+        <div class="col-md-4">
+            <!--boton para cargar una partida guardada-->
+            <button type="submit">Guardar</button>
+        </div>
     </div>
-</div>
+}
