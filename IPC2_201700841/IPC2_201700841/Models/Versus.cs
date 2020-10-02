@@ -17,18 +17,16 @@ namespace IPC2_201700841.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Versus()
         {
-            this.Cargar_Guardar = new HashSet<Cargar_Guardar>();
-            this.DetalleModo = new HashSet<DetalleModo>();
+            this.Detalle_Versus = new HashSet<Detalle_Versus>();
         }
     
-        public string Id_versus { get; set; }
-        public string Id_invitacion { get; set; }
-        public string Detalle { get; set; }
+        public int id_versus { get; set; }
+        public Nullable<int> id_invitacion { get; set; }
+        public Nullable<int> id_us { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cargar_Guardar> Cargar_Guardar { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DetalleModo> DetalleModo { get; set; }
-        public virtual DetallePartida DetallePartida { get; set; }
+        public virtual ICollection<Detalle_Versus> Detalle_Versus { get; set; }
+        public virtual Invitacion Invitacion { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }

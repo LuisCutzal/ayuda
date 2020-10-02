@@ -17,21 +17,31 @@ namespace IPC2_201700841.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Usuario()
         {
-            this.Cargar_Guardar = new HashSet<Cargar_Guardar>();
+            this.Detalle_torneo = new HashSet<Detalle_torneo>();
             this.Invitacion = new HashSet<Invitacion>();
+            this.ListaTorneo = new HashSet<ListaTorneo>();
+            this.Solitario = new HashSet<Solitario>();
+            this.Versus = new HashSet<Versus>();
         }
     
-        public string NombreUsuario { get; set; }
+        public int id_us { get; set; }
+        public string Nombre_usuario { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Contra { get; set; }
-        public System.DateTime FechaNac { get; set; }
+        public Nullable<System.DateTime> Fecha_nac { get; set; }
         public string Pais { get; set; }
         public string Correo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cargar_Guardar> Cargar_Guardar { get; set; }
+        public virtual ICollection<Detalle_torneo> Detalle_torneo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Invitacion> Invitacion { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ListaTorneo> ListaTorneo { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Solitario> Solitario { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Versus> Versus { get; set; }
     }
 }

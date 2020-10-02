@@ -14,9 +14,18 @@ namespace IPC2_201700841.Models
     
     public partial class Invitacion
     {
-        public string Id_invitacion { get; set; }
-        public string NombreUsuario { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Invitacion()
+        {
+            this.Versus = new HashSet<Versus>();
+        }
+    
+        public int id_invitacion { get; set; }
+        public string contenido { get; set; }
+        public Nullable<int> id_us { get; set; }
     
         public virtual Usuario Usuario { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Versus> Versus { get; set; }
     }
 }

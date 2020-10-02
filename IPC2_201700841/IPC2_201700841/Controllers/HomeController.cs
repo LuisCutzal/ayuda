@@ -1,21 +1,15 @@
 ﻿using IPC2_201700841.Models;
-using Microsoft.Ajax.Utilities;
-using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.IO;
 using System.Linq;
-using System.Text;
 using System.Web;
 using System.Web.Mvc;
-using System.Xml;
 
 namespace IPC2_201700841.Controllers
-{    
+{
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Inicio()
         {
             return View();
         }
@@ -23,13 +17,13 @@ namespace IPC2_201700841.Controllers
         public ActionResult Index(string us, string contra) //us toma el texto escrito en el index
         {
             //if (TempData["Message"] != null)
-             //   ViewBag.Message = TempData["Message"].ToString();
+            //   ViewBag.Message = TempData["Message"].ToString();
             try
             {
-                using (FaseIpc2_201700841Entities baseDatos = new FaseIpc2_201700841Entities()) //entitis es el entity framework
+                using (Proyecto_IPC2 baseDatos = new Proyecto_IPC2()) //entitis es el entity framework
                 {
                     var lista = from datos in baseDatos.Usuario
-                                where datos.NombreUsuario == us && datos.Contra.ToString() == contra
+                                where datos.Nombre_usuario == us && datos.Contra.ToString() == contra
                                 select datos;
                     if (lista.Count() > 0) //si hay usuarios en la lista
                     {
@@ -40,12 +34,12 @@ namespace IPC2_201700841.Controllers
                     {
                         //el usuario es invalido, lo redirecciona automaticamente al registro de usuarios.
                         return Redirect("/Usuarios/Create");
-                      //  return Content("Usuario invalio ingrese de nuevo sus creenciales"); //se va al registro porque no entro
+                        //  return Content("Usuario invalio ingrese de nuevo sus creenciales"); //se va al registro porque no entro
                     }
                 }
                 // el usuario ingresa a su cuenta.
                 //@TempData["Message"] = "prueba";
-                return RedirectToAction("Contact"); //usuario valido
+                return RedirectToAction("StartSesion"); //usuario valido
             }
             catch (Exception ex)
             {
@@ -53,37 +47,17 @@ namespace IPC2_201700841.Controllers
             }
             return View();
         }
-
-        public ActionResult About() //about es la pestaña en solitario
+        public ActionResult StartSesion()
         {
-            //ViewBag.Message = "Your application description page.";
-
             return View();
         }
-        //agregar una lista y luego recorrerla
 
 
-        
-        public ActionResult Contact() //about es igual que el contact
+        public ActionResult Solitario()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View(); //representa una vista
-        }
-
-        [HttpPost] //este bloque de codigo es para dar evento a los 3 botones "solitario", "versus" y "torneo"
-        public ActionResult Contact(string a)
-        {
-            
-            try {
-                 return RedirectToAction("About");
-                  
-            }
-            catch(Exception e) { 
-            }
-            
-            
             return View();
         }
+
     }
+   
 }

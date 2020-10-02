@@ -17,17 +17,14 @@ namespace IPC2_201700841.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Solitario()
         {
-            this.Cargar_Guardar = new HashSet<Cargar_Guardar>();
-            this.DetalleModo = new HashSet<DetalleModo>();
+            this.Detalle_Solitario = new HashSet<Detalle_Solitario>();
         }
     
-        public string Id_solitario { get; set; }
-        public string Detalle { get; set; }
+        public int id_solitario { get; set; }
+        public Nullable<int> id_us { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cargar_Guardar> Cargar_Guardar { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DetalleModo> DetalleModo { get; set; }
-        public virtual DetallePartida DetallePartida { get; set; }
+        public virtual ICollection<Detalle_Solitario> Detalle_Solitario { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }

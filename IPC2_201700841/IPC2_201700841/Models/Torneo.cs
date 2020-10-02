@@ -17,14 +17,18 @@ namespace IPC2_201700841.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Torneo()
         {
-            this.DetalleModo = new HashSet<DetalleModo>();
+            this.Detalle_torneo = new HashSet<Detalle_torneo>();
+            this.ListaTorneo = new HashSet<ListaTorneo>();
         }
     
-        public string NombreTorneo { get; set; }
-        public string Detalle { get; set; }
+        public int id_torneo { get; set; }
+        public string Nombre { get; set; }
+        public Nullable<int> id_admin { get; set; }
     
+        public virtual Admin Admin { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DetalleModo> DetalleModo { get; set; }
-        public virtual DetallePartida DetallePartida { get; set; }
+        public virtual ICollection<Detalle_torneo> Detalle_torneo { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ListaTorneo> ListaTorneo { get; set; }
     }
 }

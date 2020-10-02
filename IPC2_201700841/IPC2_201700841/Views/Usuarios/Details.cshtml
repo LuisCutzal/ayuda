@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Master/IndexMaster.cshtml";
 }
 
 <h2>Details</h2>
@@ -10,6 +11,14 @@
     <h4>Usuario</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre_usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre_usuario)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Nombre)
         </dt>
@@ -35,11 +44,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.FechaNac)
+            @Html.DisplayNameFor(model => model.Fecha_nac)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.FechaNac)
+            @Html.DisplayFor(model => model.Fecha_nac)
         </dd>
 
         <dt>
@@ -61,6 +70,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.NombreUsuario }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_us }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
